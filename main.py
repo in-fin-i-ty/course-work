@@ -4,6 +4,9 @@ JSON_FILE = 'operations.json'
 
 
 def main():
+    """"
+    функция для вывода 5 последних операций, отформатироанных при помощи функций из файла utils.py
+    """
     data = load_data(JSON_FILE)
     data = filter_sort(data)
 
