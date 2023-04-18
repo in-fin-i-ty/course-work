@@ -2,6 +2,10 @@ from utils import filter_sort, load_data, format_date, mask_card, formatted_data
 
 
 def test_load_data():
+    """
+    Тест для функции load_datd, проверяет корректность выгрузки данных библиотекой Json
+    с помощю тестового json файла
+    """
     list_ = [
         {"id": 441945886,
          "state": "EXECUTED",
@@ -22,6 +26,10 @@ def test_load_data():
 
 
 def test_filter_sort():
+    """
+    Тест для функции filter_sort
+    производится проверка на корректную сортировку данных по дате и была ли проведена операция
+    """
     list_ = [
         {'id': 1,
          'state': 'EXECUTED',
@@ -51,17 +59,29 @@ def test_filter_sort():
 
 
 def test_format_date():
+    """
+    Тест для функции format_date
+    проверка на корректность работы функции по форматировунию даты
+    """
     assert format_date('2019-03-23T01:09:46.296404') == '23.03.2019'
     assert format_date('2018-09-12T21:27:25.241689') == '12.09.2018'
 
 
 def test_mask_card():
+    """
+    Тест для функции mask_card
+    проверка на корректность максировки номера карты и счёта
+    """
     assert mask_card("Счет 27248529432547658655") == "Счет **8655"
     assert mask_card("Visa Gold 7305799447374042") == "Visa Gold 7305 79** **** 4042"
     assert mask_card("MasterCard 4956649687637418") == "MasterCard 4956 64** **** 7418"
 
 
 def test_formatted_data():
+    """
+    Тест для функции formatted_data
+    проверка на правильность вывода отформатированных данных по оперциям
+    """
     dict1 = {
         "id": 441945886,
         "state": "EXECUTED",
